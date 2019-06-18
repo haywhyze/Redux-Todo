@@ -14,7 +14,7 @@ export const addTodo = (value, completed) => {
 
 export const toggleComplete = (id, completed) => {
   return {
-    type: DELETE_TODO,
+    type: TOGGLE_COMPLETE,
     payload: {
       id,
       completed,
@@ -23,7 +23,7 @@ export const toggleComplete = (id, completed) => {
 }
 export const deleteTodo = id => {
   return {
-    type: TOGGLE_COMPLETE,
+    type: DELETE_TODO,
     payload: id
   }
 }
