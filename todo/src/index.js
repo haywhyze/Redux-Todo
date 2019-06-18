@@ -4,11 +4,11 @@ import './index.css';
 import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { todosReducer } from './redux/reducers';
+import todos from './redux/reducers';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(
-  todosReducer,
+  todos,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
