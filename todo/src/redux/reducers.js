@@ -1,6 +1,7 @@
 import { ADD_TODO, DELETE_TODO, TOGGLE_COMPLETE } from "./actionTypes";
+import data from '../dummyData';
 
-export const todosReducer = (state = [], action) => {
+export default (state = data, action) => {
   switch (action.type) {
     case (ADD_TODO):
       return [...state, action.payload];
