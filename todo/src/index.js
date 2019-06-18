@@ -6,11 +6,21 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import todos from './redux/reducers';
 import * as serviceWorker from './serviceWorker';
+import { loadState, saveState } from './localStorage';
+
+const persistedState = loadState().todos;
 
 const store = createStore(
   todos,
+  persistedState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
+
+store.subscribe(() => {
+  saveState({
+    todos: store.getState()
+  });
+})
 
 ReactDOM.render(
   <Provider store={store}>
