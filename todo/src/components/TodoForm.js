@@ -1,16 +1,32 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { addTodo } from '../redux/actionCreators';
 
-export default class TodoForm extends Component {
+export class TodoForm extends Component {
   todoValueRef = React.createRef();
+
+  addTodo = () => {
+    this.props.addTodo(this.todoValueRef.current.value);
+    this.todoValueRef.current.value = '';
+  }
 
   render() {
     return (
       <div>
-        <form>
           <input ref={this.todoValueRef} type="text" />
-          <button>Add Todo</button>
-        </form>
+          <button onClick={this.addTodo}>Add Todo</button>
       </div>
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    todos: state,
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { addTodo },
+)(TodoForm);
