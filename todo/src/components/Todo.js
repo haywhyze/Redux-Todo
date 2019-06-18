@@ -19,6 +19,7 @@ export default class Todo extends Component {
       >
         {text}
       </StyledLi>
+      <button onClick={() => this.props.deleteTodo(id)}>Delete</button>
       </>
     )
   }

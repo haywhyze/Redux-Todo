@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { toggleComplete } from '../redux/actionCreators';
+import { toggleComplete, deleteTodo } from '../redux/actionCreators';
 import Todo from './Todo';
 
 export class TodoList extends Component {
@@ -18,6 +18,7 @@ export class TodoList extends Component {
                 completed={todo.completed}
                 id={todo.id}
                 toggleComplete={this.props.toggleComplete}
+                deleteTodo={this.props.deleteTodo}
               />
             ))
           }
@@ -35,5 +36,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { toggleComplete },
+  { toggleComplete, deleteTodo },
 )(TodoList);
